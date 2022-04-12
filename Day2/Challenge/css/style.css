@@ -1,0 +1,19 @@
+@media (max-width: 1024px){
+    body{
+        background-color: aqua;
+    }
+
+}
+@media (max-width: 768px){
+    body{
+        background-color: rgb(33, 184, 13);
+    }
+
+}
+@media (max-width: 480px){
+    body{
+        background-color: rgb(114, 0, 0);
+    }
+
+}
+
