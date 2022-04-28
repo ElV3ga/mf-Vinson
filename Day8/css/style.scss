@@ -1,0 +1,85 @@
+$primary: rgb(34, 21, 117);
+$secondary: rgb(235, 205, 205);
+$tertiary: rgb(255, 255, 255);
+$success: rgb(92, 184, 92);
+$info: rgb(91, 192, 222);
+$warning: rgb(86, 78, 240);
+$danger: rgb(217, 83, 79);
+$light: rgb(248, 248, 248);
+$dark: rgb(51, 51, 51);
+
+
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
+$custom-theme-colors: (
+    "tester": yellow,
+    "one": rgb(232, 30, 30),
+    "two": rgb(0, 0, 0),
+    "three": rgb(27, 76, 128),
+);
+
+$theme-colors: map-merge($theme-colors, $custom-theme-colors); 
+
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+$utilities-colors: map-merge(
+  $theme-colors-rgb,
+  (
+    "black": to-rgb($black),
+    "white": to-rgb($white),
+    "body":  to-rgb($body-color)
+  )
+);
+
+$utilities-text-colors: map-loop($utilities-colors, rgba-css-var, "$key", "text");
+$utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+.flex {
+    display: flex;
+    height: 800px;
+    background-color: $primary;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box {
+    border: 1px solid #000;
+    height: 100px;
+    display: inline-block;
+    width: 100%;
+}
+
+@media (min-width: 1299px) {
+    .box {
+        width: 20%;
+        background: purple;
+    }
+
+}
+
+@media (max-width: 1298px) {
+    .box {
+        width: 20%;
+        background: green;
+    }
+
+}
+
+@media (max-width: 888px) {
+    .box {
+        width: 45%;
+        background: blue;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .box {
+        width: 100%;
+        background: red;
+    }
+
+}
